@@ -33,7 +33,7 @@ def check_and_create_database():
             #     print(f"Database '{credentials.get_name()}' created successfully.")
                 
             # Switch to the created or existing database
-            cursor.execute(f"USE {credentials.get_name()}")
+            # cursor.execute(f"USE {credentials.get_name()}")
             
             # Create the stock information table if it does not exist
             create_table_query = """
