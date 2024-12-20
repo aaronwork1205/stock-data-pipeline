@@ -16,4 +16,4 @@ class MysqlCredentials:
         return self.db_password
     
     def get_name(self):
-        self.db_name
+        return self.db_name

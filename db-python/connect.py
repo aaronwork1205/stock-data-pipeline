@@ -21,7 +21,6 @@ def check_and_create_database():
             # Check if the database exists
             cursor.execute("SHOW DATABASES")
             databases = [db[0] for db in cursor.fetchall()]
-            
             db_name = credentials.get_name()
             if db_name not in databases:
                 print(f"Database '{db_name}' not found. Creating the database...")
