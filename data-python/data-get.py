@@ -29,7 +29,7 @@ with open(os.devnull, 'w') as devnull:
                     continue
 
                 is_valid[i] = True
-                data.to_csv('hist/{}.csv'.format(s))
+                data.to_csv('stock-data-pipeline/db-python/hist/{}.csv'.format(s))
         except:
             pass
 

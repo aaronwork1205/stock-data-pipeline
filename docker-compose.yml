@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Qsczse001205-= # Change this to your preferred password
+      MYSQL_DATABASE: stock_history  # Database name you want to create
+    ports:
+      - "3306:3306"  # Expose MySQL port
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist MySQL data between container restarts
+
+  app:
+    build: .
+    depends_on:
+      - mysql  # Ensure MySQL starts before the app
+    environment:
+      DB_HOST: mysql  # The name of the MySQL service in the Docker network
+      DB_USER: root
+      DB_PASSWORD: Qsczse001205-=  # Must match the password defined in the mysql service
+      DB_NAME: stock_history  # Database name
+    ports:
+      - "5000:5000"  # Expose your app's port if needed (adjust based on your app)
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+
+volumes:
+  mysql_data:
